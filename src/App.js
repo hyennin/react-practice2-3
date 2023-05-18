@@ -13,7 +13,7 @@ import data from './data.js';
 
 function App() {
   const [shoes] = useState(data);
-  const shoesImg = [shoes01, shoes02, shoes03];
+  const [images] = useState([shoes01, shoes02, shoes03]);
 
   return (
     <div className="App">
@@ -32,7 +32,7 @@ function App() {
       <div className='main-bg' style={{backgroundImage : 'url('+bg+')'}}></div>
       <div className='container'>
         <div className='row'>
-          { shoes.map((s, idx) => <Card image={shoesImg[idx]} title={s.title} content={s.content}/> )}
+          { shoes.map((s, idx) => <Card image={images[idx]} shoes={s}/> )}
         </div>
       </div>
     </div>
@@ -43,8 +43,8 @@ const Card = (props) => {
   return (
     <div className='col-md-4'>
       <img src={props.image} alt='에어'/>
-      <h4>{props.title}</h4>
-      <p>{props.content}</p> 
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.content}</p> 
     </div>
   );
 }
