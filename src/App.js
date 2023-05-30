@@ -43,7 +43,7 @@ function App() {
       </div> 
       </>
      }/>
-    <Route path="/detail" element={<Detail shoes={shoes}/>}/>
+    <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
     <Route path="/about" element={<About/>}>
      <Route path="member" element={<h1>ㅁㅂ입니다</h1>}/>
      <Route path="location" element={<h1>ㄹㅋㅇㅅ입니다</h1>}/>
