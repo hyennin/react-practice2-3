@@ -2,9 +2,18 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const YellowBtn = styled.button`
-    background: yellow;
-    color: black;
+    background: ${props => props.bg};
+    color: ${props => props.bg === 'blue' ? 'white' : 'black'};
     padding: 10px;
+`;
+
+const NewBtn = styled(YellowBtn)`
+    color: ${props => props.bg === 'green' ? 'white' : 'black'};
+`;
+
+const Box = styled.div`
+    background: gray;
+    padding: 20px;
 `;
 
 const Detail = (props) => {
@@ -13,7 +22,10 @@ const Detail = (props) => {
 
     return (
         <div className="container">
-            <YellowBtn>스타일 버튼</YellowBtn>
+            <Box>
+                <YellowBtn bg="blue">스타일버튼_blue</YellowBtn>
+                <NewBtn bg="green">스타일버튼_green</NewBtn>
+            </Box>
             <div className="row">
                 <div className="col-md-6">
                     <img src={'https://raw.githubusercontent.com/hyennin/react-practice2-3/master/src/img/shoes0' + id + '.png' } width="100%" alt="에어"/>

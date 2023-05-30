@@ -19,7 +19,7 @@ function App() {
 
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
+          <Navbar.Brand href="/">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">
             {/* <Nav.Link onClick={() => navigate(-1)}>Home</Nav.Link> */}
             <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
@@ -35,7 +35,7 @@ function App() {
            <div className = "container">
             <div className = "row">                   
              { shoes.map((a,i) => {
-               return < Card shoes={shoes[i]} i={i+1}></Card>
+               return < Card shoes={shoes[i]} i={i}></Card>
               // <Card shoes={shoes[i]} images={images[i]}></Card>
             })}
         
