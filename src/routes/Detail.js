@@ -6,11 +6,11 @@ import styled from "styled-components";
 
 let YellowBtn = styled.button`
  background : ${props => props.bg};
- color : ${props => props.bg == 'blue' ?'white' : 'black'};
+ color : ${props => props.bg === 'blue' ?'white' : 'black'};
  padding : 10px;
 `
 let NewBtn =  styled(YellowBtn)`  
- color : ${props => props.bg == 'green' ?'white' : 'black'};
+ color : ${props => props.bg === 'green' ?'white' : 'black'};
 `
 let Box = styled.div`
  background : grey; 
@@ -22,23 +22,24 @@ function Detail(props) {
   let {id} = useParams(); 
   // 3개의 탭의 값을 각각 0,1,2 정한 것임   
   let [탭, 탭변경] = useState(0);
+  let [fade2, setFade2] = useState('')
 
   useEffect(()=>{
     let a = setTimeout(()=>{setAlert(false)}, 2000)  
-    console.log(2)
+    setFade2('detail-end')
     return ()=>{
-      console.log(1) 
       // 타이머제거, useEffect가 실행되기 전에 실행됨 
        clearTimeout(a)
+       setFade2('')
     }     
   }, []) 
   // [] mount시 1회가 코드가 실행되어라 
   
  
    return (
-       <div className="container">
+       <div className={"container detail-start " + fade2}>
        {
-        alert == true   
+        alert === true   
         ? <div className = "alert alert-waring">
            2초이내 구매시 할인 
          </div>
