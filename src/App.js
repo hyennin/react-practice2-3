@@ -1,12 +1,12 @@
 import {useState} from "react"
 import {Navbar,Container,Nav,Button} from 'react-bootstrap';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './data.js';
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from "./routes/Detail";
 import axios from 'axios';
-
+import Cart  from "./routes/Cart";
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -60,6 +60,7 @@ function App() {
         <Route path = "location" element = {<div>location</div>}/>
       </Route>
       <Route path = "*" element={<div>페이지없음</div>}/> 
+      <Route path = "/cart" element ={<Cart/>}/>
    </Routes>   
  </div>
  ); 
@@ -86,6 +87,5 @@ function Card(props){
     </div>
   )
 }
-
 
 export default App;
